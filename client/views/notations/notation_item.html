@@ -1,0 +1,66 @@
+
+<template name="notationItem">
+    {{#if Template.subscriptionsReady}}
+        {{#with notation}}
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <h1 class="text-center">
+                    {{title}}
+                </h1>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <h4 class="text-center">
+                    {{singersStr}} 演唱
+                </h4>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-xs-6 column">
+
+                <h4 class="text-left">
+
+                    原调 1={{tonal0Str}}
+
+                    <span style="position:relative;top:-10px;left:6px;">{{tab.rhythm.beatPerBar}}</span>
+                    <span style="position:relative;left:-12px">—</span>
+                    <span style="position:relative;top:10px;left:-30px;">{{tab.rhythm.notePerBeat}}</span>
+
+                    {{#if capo0Str}}
+                    Capo {{capo0Str}}
+                    {{/if}}
+                </h4>
+                <br />
+                {{#if tonal1Str}}
+                <h4 class="text-left">
+                    选调 1={{tonal1Str}}
+
+                    <span style="position:relative;top:-10px;left:6px;">{{tab.rhythm.beatPerBar}}</span>
+                    <span style="position:relative;left:-12px">—</span>
+                    <span style="position:relative;top:10px;left:-30px;">{{tab.rhythm.notePerBeat}}</span>
+
+                    {{#if capo1Str}}
+                        Capo {{capo1Str}}
+                    {{/if}}
+                </h4>
+                {{/if}}
+            </div>
+            <div class="col-xs-6 column">
+                <h4 class="text-right">
+                    {{lyricsesStr}} 词
+                </h4>
+                <h4 class="text-right">
+                    {{composersStr}} 曲
+                </h4>
+                <h4 class="text-right">
+                     编配
+                </h4>
+            </div>
+        </div>
+        <div class="row clearfix">
+            {{> notationTab}}
+        </div>
+        {{/with}}
+    {{/if}}
+</template>
